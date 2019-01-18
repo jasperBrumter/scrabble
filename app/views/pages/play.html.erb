@@ -1,0 +1,81 @@
+<div class="bg">
+	<div class="field">
+		<div class="tabs">
+			<div class="tab" id="cheatTab"><p>TRICHER</p></div>
+			<div class="tab" id="trainTab"><p>S'ENTRAINER</p></div>
+		</div>
+		<div class="cheat">
+			<p class="title"> Please enter your letters, in any order!</p>
+		    <div class="form-group">
+		      <form action="/find" method="post">
+		        <%= hidden_field_tag :letter_array, @letters %>
+		        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+		        <input id = "inputform" class="form-control" type="text" name="word" placeholder="Enter" autocomplete="off">
+		      </form>
+		    </div>
+		</div>
+		<div class="train hidden">
+			<p class="title"> With these letters:</p>
+			<div class="letters">
+				<% @letters.each do |lett| %>
+					<div class="letter">
+						<h1><%= lett %></h1>
+					</div>
+				<% end %>
+			</div>
+			<p class="title"> Try finding the longest possible word:</p>
+		    <div class="form-group">
+		      <form action="/score" method="post">
+		        <%= hidden_field_tag :letter_array, @letters %>
+		        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+		        <input id = "inputform2" class="form-control" type="text" name="word" placeholder="What is the longest word you can think of?" autocomplete="off">
+		      </form>
+		    </div>
+		</div>
+	</div>
+</div>
+
+<script>
+
+	const cheatTab = document.querySelector("#cheatTab");
+	const trainTab = document.querySelector("#trainTab");
+	const cheatField = document.querySelector(".cheat");
+	const trainField = document.querySelector(".train");
+	cheatTab.classList.add("active");
+
+	cheatTab.addEventListener("click", (e) => {
+		cheatField.classList.remove("hidden");
+		trainField.classList.add("hidden");
+		cheatTab.classList.add("active");
+		trainTab.classList.remove("active");
+
+	})
+	trainTab.addEventListener("click", (e) => {
+		cheatField.classList.add("hidden");
+		trainField.classList.remove("hidden");
+		cheatTab.classList.remove("active");
+		trainTab.classList.add("active");
+	})
+
+	let letters = document.querySelectorAll(".letter");
+	document.querySelector("#inputform2").addEventListener("keyup", (e) => {
+	  letters.forEach((x) => {
+	    x.style.background = "rgba(220,220,220,0.6)";
+	  })
+
+	  e.target.value.toUpperCase().split("").forEach((character) => {
+	  	
+	  	console.log(e.target.value.toUpperCase().split(""))
+	    for (let i = 0; i < letters.length ; i++) {
+	      if (letters[i].querySelector("h1").innerText == character) {
+	      	
+	      } 
+	      if (letters[i].style = "rgba(220,220,220,0.6)")  {
+	        letters[i].style.background = "red";
+	        break;
+	      }
+	    };
+	  });
+
+});
+</script>

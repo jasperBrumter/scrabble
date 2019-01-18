@@ -1,0 +1,109 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  text-align: center;
+  margin: 0;
+
+}
+input {
+	&:focus {
+		outline: none;
+	}
+}
+.hidden {
+	display: none;
+
+}
+
+.bg {
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(120,120,120,0.3), rgba(120,120,120,0.4)), url("https://einstruction.fr/wp-content/uploads/2017/09/logiciel-tricher-scrabble.jpg");
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.field {
+  width: 700px;
+  height:50vh;
+  background-color: white;
+  display:flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: flex-start;
+  margin: auto auto;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(10,10,10,0.6);
+  overflow: scroll;
+ 
+}
+
+.tabs {
+	display: flex;
+	justify-content: space-around;
+	.tab {
+		font-weight: lighter;
+		color: rgba(100,100,100,0.8);
+		width: 50%;
+		transition: .22s ease;
+		border-bottom: 1px solid black;
+		&:hover {
+			border-bottom: 3px solid black;
+		}
+	}
+	.active {
+		font-weight: bolder !important;
+		color: black;
+	}
+}
+
+.cheat {
+	.title {
+		margin-top: 50px;
+	}
+	#inputform {
+		width: 350px;
+		padding: 15px 20px;
+		&:focus {
+			outline: none;
+		}
+	}
+}
+.train {
+	.letters {
+		display: flex;
+		width: 80%;
+		justify-content: center;
+		align-items: center;
+		margin: 0 auto;
+
+	}
+	.letter {
+		margin:0px 4px;
+		width: 40px;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: rgba(220,220,220,0.6);
+		border: 1px solid black;
+		border-radius: 3px;
+		box-shadow: 2px 2px 2px rgba(10,10,10,0.8);
+	}
+	.title {
+		margin-top: 50px;
+	}
+	#inputform2 {
+		width: 350px;
+		padding: 15px 20px;
+		&:focus {
+			outline: none;
+		}
+	}
+
+}
+
+
+
