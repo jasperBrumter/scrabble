@@ -102,7 +102,24 @@ class PagesController < ApplicationController
 
   def score
   	@letters = params["letter_array"].split(" ")
-  	@yourletters = params["word"].upcase.gsub(/\s+/, "").split("")
-  	raise
+  	@yourletters = params["word"].upcase.gsub(/\s+/, "")
+  	
+  	@approved = false;
+  	case @yourletters.length
+  	when 2
+  		@approved = true if LENGTH2.include?(@yourletters)
+  	when 3
+  		@approved = true if LENGTH3.include?(@yourletters)
+  	when 4
+  		@approved = true if LENGTH4.include?(@yourletters)
+  	when 5
+  		@approved = true if LENGTH5.include?(@yourletters)
+  	when 6
+  		@approved = true if LENGTH6.include?(@yourletters)
+  	when 7
+  		@approved = true if LENGTH7.include?(@yourletters)
+  	when 8
+  		@approved = true if LENGTH8.include?(@yourletters)
+  	end
   end
 end
