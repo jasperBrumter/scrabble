@@ -3,106 +3,113 @@
 <% end %>
 
 <div class="bg">
-	<div class="field">
-		<h1> Top Words
-		</h1>
+	<div class="resultField">
+		<div>
+			<h1>Top Words</h1>
+		</div>
+			
+		<div>
+			<% count = 0 %>
+			<% unless @eightarray.empty? || count > 10  %>
+				<p class=".divider">à 8 lettres:</p>
+				<div class="results">
+					<% @eightarray.each do |word| %>
+						<% count += 1 %>
+						<div class="wordFound">
+							<% word.split("").each do |charact| %>
+								<div class="wordChar">
+									<h4><%= charact %></h4>
+								</div>
+							<% end %>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
 
-		<% count = 0 %>
-		<% unless @eightarray.empty? || count > 10  %>
-			<p class=".divider">à 8 lettres:</p>
-			<div class="results">
-				<% @eightarray.each do |word| %>
+			<% unless @sevenarray.empty? || count > 10 %>
+			<p class=".divider">à 7 lettres:</p>
+				<div class="results">
+					<% @sevenarray.each do |word| %>
+						<% count += 1 %>
+						<div class="wordFound">
+							<% word.split("").each do |charact| %>
+								<div class="wordChar">
+									<h4><%= charact %></h4>
+								</div>
+							<% end %>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
+
+			<% unless @sixarray.empty? || count > 10 %>
+			<p class=".divider">à 6 lettres:</p>
+				<div class="results">
+					<% @sixarray.each do |word| %>
+						<% count += 1 %>
+						<div class="wordFound">
+							<% word.split("").each do |charact| %>
+								<div class="wordChar">
+									<h4><%= charact %></h4>
+								</div>
+							<% end %>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
+
+			<% unless @fivearray.empty? || count > 10 %>
+			<p class=".divider">à 5 lettres:</p>
+				<div class="results">
+					<% @fivearray.each do |word| %>
+						<% count += 1 %>
+						<div class="wordFound">
+							<% word.split("").each do |charact| %>
+								<div class="wordChar">
+									<h4><%= charact %></h4>
+								</div>
+							<% end %>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
+
+			<% unless @fourarray.empty? || count > 10 %>
+			<p class=".divider">à 4 lettres:</p>
+				<div class="results">
+					<% @fourarray.each do |word| %>
+						<% count += 1 %>
+						<div class="wordFound">
+							<% word.split("").each do |charact| %>
+								<div class="wordChar">
+									<h4><%= charact %></h4>
+								</div>
+							<% end %>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
+
+			<% unless @threearray.empty? || count > 10 %>
+			<p class=".divider">à 3 lettres:</p>
+				<div class="results">
+					<% @threearray.each do |word| %>
 					<% count += 1 %>
-					<div class="wordFound">
-						<% word.split("").each do |charact| %>
-							<div class="wordChar">
-								<h4><%= charact %></h4>
-							</div>
-						<% end %>
-					</div>
-				<% end %>
-			</div>
-		<% end %>
+						<div class="wordFound">
+							<% word.split("").each do |charact| %>
+								<div class="wordChar">
+									<h4><%= charact %></h4>
+								</div>
+							<% end %>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
 
-		<% unless @sevenarray.empty? || count > 10 %>
-		<p class=".divider">à 7 lettres:</p>
-			<div class="results">
-				<% @sevenarray.each do |word| %>
-					<% count += 1 %>
-					<div class="wordFound">
-						<% word.split("").each do |charact| %>
-							<div class="wordChar">
-								<h4><%= charact %></h4>
-							</div>
-						<% end %>
-					</div>
-				<% end %>
-			</div>
-		<% end %>
-
-		<% unless @sixarray.empty? || count > 10 %>
-		<p class=".divider">à 6 lettres:</p>
-			<div class="results">
-				<% @sixarray.each do |word| %>
-					<% count += 1 %>
-					<div class="wordFound">
-						<% word.split("").each do |charact| %>
-							<div class="wordChar">
-								<h4><%= charact %></h4>
-							</div>
-						<% end %>
-					</div>
-				<% end %>
-			</div>
-		<% end %>
-
-		<% unless @fivearray.empty? || count > 10 %>
-		<p class=".divider">à 5 lettres:</p>
-			<div class="results">
-				<% @fivearray.each do |word| %>
-					<% count += 1 %>
-					<div class="wordFound">
-						<% word.split("").each do |charact| %>
-							<div class="wordChar">
-								<h4><%= charact %></h4>
-							</div>
-						<% end %>
-					</div>
-				<% end %>
-			</div>
-		<% end %>
-
-		<% unless @fourarray.empty? || count > 10 %>
-		<p class=".divider">à 4 lettres:</p>
-			<div class="results">
-				<% @fourarray.each do |word| %>
-					<% count += 1 %>
-					<div class="wordFound">
-						<% word.split("").each do |charact| %>
-							<div class="wordChar">
-								<h4><%= charact %></h4>
-							</div>
-						<% end %>
-					</div>
-				<% end %>
-			</div>
-		<% end %>
-
-		<% unless @threearray.empty? || count > 10 %>
-		<p class=".divider">à 3 lettres:</p>
-			<div class="results">
-				<% @threearray.each do |word| %>
-				<% count += 1 %>
-					<div class="wordFound">
-						<% word.split("").each do |charact| %>
-							<div class="wordChar">
-								<h4><%= charact %></h4>
-							</div>
-						<% end %>
-					</div>
-				<% end %>
-			</div>
-		<% end %>
-		<p><%= link_to "Return", root_path %></p>
+		</div>
+		
+		<div>
+			<p><%= link_to "RETOUR", root_path, {class: "restartButton"} %></p>
+		</div>
 	</div>
 </div>
