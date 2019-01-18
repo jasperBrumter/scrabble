@@ -1,10 +1,11 @@
 <div class="bg">
 	<div class="field">
 		<div class="tabs">
-			<div class="tab" id="cheatTab"><p class="tabsTitle">TRICHER</p></div>
 			<div class="tab" id="trainTab"><p class="tabsTitle">S'ENTRAINER</p></div>
+			<div class="tab" id="cheatTab"><p class="tabsTitle">TRICHER</p></div>
+			
 		</div>
-		<div class="cheat">
+		<div class="cheat hidden">
 			<h1 class="title">Devenez un maître du Scrabble</h1>
 			<p> Entrez vos lettres, dans n'importe quel ordre!</p>
 		    <div class="form-group">
@@ -15,8 +16,9 @@
 		      </form>
 		    </div>
 		</div>
-		<div class="train hidden">
-			<p class="title"> Avec ces lettres:</p>
+		<div class="train">
+			<h1 class="title">Devenez un maître du Scrabble</h1>
+			<p class> Avec ces lettres:</p>
 			<div class="letters">
 				<% @letters.each do |lett| %>
 					<div class="letter">
@@ -32,6 +34,7 @@
 		        <input id = "inputform2" class="form-control" type="text" name="word" placeholder="CHAT" autocomplete="off">
 		      </form>
 		    </div>
+		    <p>Votre Score: <br><%= @score %> / <%= @maxscore %></p>
 		</div>
 	</div>
 </div>
@@ -42,7 +45,7 @@
 	const trainTab = document.querySelector("#trainTab");
 	const cheatField = document.querySelector(".cheat");
 	const trainField = document.querySelector(".train");
-	cheatTab.classList.add("active");
+	trainTab.classList.add("active");
 
 	cheatTab.addEventListener("click", (e) => {
 		cheatField.classList.remove("hidden");
