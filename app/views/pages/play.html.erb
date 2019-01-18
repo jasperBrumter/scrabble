@@ -41,6 +41,7 @@
 		    <div class="score">
 		    	<p>Votre Score: <br><%= @score %> / <%= @maxscore %></p>
 		    </div>
+		    <%= link_to "REDISTRIBUER", restart_path, {class: "restartButton"}%>
 		</div>
 	</div>
 </div>
@@ -60,8 +61,7 @@
 		trainField.classList.add("hidden");
 		cheatTab.classList.add("active");
 		trainTab.classList.remove("active");
-		cheatForm.focus()
-
+		cheatForm.focus();
 	})
 	trainTab.addEventListener("click", (e) => {
 		cheatField.classList.add("hidden");
@@ -75,7 +75,7 @@
 	cheatForm.addEventListener("keyup", (e) => {
 		cheatFormDiv.innerHTML = "";
 		e.target.value.toUpperCase().split("").forEach((typedLetter) => {
-			cheatFormDiv.insertAdjacentHTML("beforeend", "<div class='typedLetter'><h1>"+typedLetter+"</h1></div>")
+			cheatFormDiv.insertAdjacentHTML("beforeend", "<div class='typedLetter'><h1>"+typedLetter+"</h1></div>");
 		})
 	})
 
