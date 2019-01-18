@@ -6,13 +6,16 @@
 			
 		</div>
 		<div class="cheat hidden">
-			<h1 class="title">Devenez un maître du Scrabble</h1>
-			<p> Entrez vos lettres, dans n'importe quel ordre!</p>
+			<h1 class="title">“Tricher au jeu sans gagner est d'un sot.”</h1>
+			<p>Voltaire, <u>Eloge de l'hypocrisie</u></p>
 		    <div class="form-group">
 		      <form action="/find" method="post">
 		        <%= hidden_field_tag :letter_array, @letters %>
 		        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-		        <input id = "inputform" class="form-control" type="text" name="word" placeholder="ABCDEFG" autocomplete="off">
+		        <div class="typedWord">
+		        	
+		        </div>
+		        <input id = "inputform" class="form-control" type="text" name="word" placeholder="Entrez vos lettres, dans n'importe quel ordre!" autocomplete="off">
 		      </form>
 		    </div>
 		</div>
@@ -31,10 +34,13 @@
 		      <form action="/score" method="post">
 		        <%= hidden_field_tag :letter_array, @letters %>
 		        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+		     
 		        <input id = "inputform2" class="form-control" type="text" name="word" placeholder="CHAT" autocomplete="off">
 		      </form>
 		    </div>
-		    <p>Votre Score: <br><%= @score %> / <%= @maxscore %></p>
+		    <div class="score">
+		    	<p>Votre Score: <br><%= @score %> / <%= @maxscore %></p>
+		    </div>
 		</div>
 	</div>
 </div>
@@ -45,6 +51,8 @@
 	const trainTab = document.querySelector("#trainTab");
 	const cheatField = document.querySelector(".cheat");
 	const trainField = document.querySelector(".train");
+	const cheatForm = document.querySelector("#inputform");
+	const cheatFormDiv = document.querySelector(".typedWord");
 	trainTab.classList.add("active");
 
 	cheatTab.addEventListener("click", (e) => {
@@ -52,6 +60,7 @@
 		trainField.classList.add("hidden");
 		cheatTab.classList.add("active");
 		trainTab.classList.remove("active");
+		cheatForm.focus()
 
 	})
 	trainTab.addEventListener("click", (e) => {
@@ -62,24 +71,12 @@
 	})
 
 	let letters = document.querySelectorAll(".letter");
-	document.querySelector("#inputform2").addEventListener("keyup", (e) => {
-	  letters.forEach((x) => {
-	    x.style.background = "rgba(220,220,220,0.6)";
-	  })
 
-	  e.target.value.toUpperCase().split("").forEach((character) => {
-	  	
-	  	console.log(e.target.value.toUpperCase().split(""))
-	    for (let i = 0; i < letters.length ; i++) {
-	      if (letters[i].querySelector("h1").innerText == character) {
-	      	
-	      } 
-	      if (letters[i].style = "rgba(220,220,220,0.6)")  {
-	        letters[i].style.background = "rgba(220,220,220,0.6)";
-	        break;
-	      }
-	    };
-	  });
+	cheatForm.addEventListener("keyup", (e) => {
+		cheatFormDiv.innerHTML = "";
+		e.target.value.toUpperCase().split("").forEach((typedLetter) => {
+			cheatFormDiv.insertAdjacentHTML("beforeend", "<div class='typedLetter'><h1>"+typedLetter+"</h1></div>")
+		})
+	})
 
-});
 </script>

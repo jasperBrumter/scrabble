@@ -228,15 +228,17 @@ class PagesController < ApplicationController
   	end
 
 
-#update your score
+#update your score and max score
   	if @approved
   		@yourscore = @yourletters.length
   		session[:score] = session[:score].to_i + @yourscore
   		@score = session[:score]
+  	else
+  		@score = session[:score].to_i
   	end
 
-#update maximum score
-  	if @sevenarray.any?
+
+	if @sevenarray.any?
   		session[:maxscore] = session[:maxscore].to_i + 7
   		@maxscore = session[:maxscore]
   	elsif @sixarray.any?
