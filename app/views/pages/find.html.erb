@@ -1,3 +1,7 @@
+<% content_for(:title) do %>
+	Find Your Word!
+<% end %>
+
 <div class="bg">
 	<div class="field">
 		<h1> Top Words
@@ -5,7 +9,7 @@
 
 		<% count = 0 %>
 		<% unless @eightarray.empty? || count > 10  %>
-			<p class=".divider">8 letter words:</p>
+			<p class=".divider">à 8 lettres:</p>
 			<div class="results">
 				<% @eightarray.each do |word| %>
 					<% count += 1 %>
@@ -21,7 +25,7 @@
 		<% end %>
 
 		<% unless @sevenarray.empty? || count > 10 %>
-		<p class=".divider">7 letter words:</p>
+		<p class=".divider">à 7 lettres:</p>
 			<div class="results">
 				<% @sevenarray.each do |word| %>
 					<% count += 1 %>
@@ -37,7 +41,7 @@
 		<% end %>
 
 		<% unless @sixarray.empty? || count > 10 %>
-		<p class=".divider">6 letter words:</p>
+		<p class=".divider">à 6 lettres:</p>
 			<div class="results">
 				<% @sixarray.each do |word| %>
 					<% count += 1 %>
@@ -53,7 +57,7 @@
 		<% end %>
 
 		<% unless @fivearray.empty? || count > 10 %>
-		<p class=".divider">5 letter words:</p>
+		<p class=".divider">à 5 lettres:</p>
 			<div class="results">
 				<% @fivearray.each do |word| %>
 					<% count += 1 %>
@@ -69,7 +73,7 @@
 		<% end %>
 
 		<% unless @fourarray.empty? || count > 10 %>
-		<p class=".divider">4 letter words:</p>
+		<p class=".divider">à 4 lettres:</p>
 			<div class="results">
 				<% @fourarray.each do |word| %>
 					<% count += 1 %>
@@ -85,7 +89,7 @@
 		<% end %>
 
 		<% unless @threearray.empty? || count > 10 %>
-		<p class=".divider">3 letter words:</p>
+		<p class=".divider">à 3 lettres:</p>
 			<div class="results">
 				<% @threearray.each do |word| %>
 				<% count += 1 %>

@@ -5,17 +5,18 @@
 			<div class="tab" id="trainTab"><p class="tabsTitle">S'ENTRAINER</p></div>
 		</div>
 		<div class="cheat">
-			<p class="title"> Please enter your letters, in any order!</p>
+			<h1 class="title">Devenez un maître du Scrabble</h1>
+			<p> Entrez vos lettres, dans n'importe quel ordre!</p>
 		    <div class="form-group">
 		      <form action="/find" method="post">
 		        <%= hidden_field_tag :letter_array, @letters %>
 		        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-		        <input id = "inputform" class="form-control" type="text" name="word" placeholder="Enter" autocomplete="off">
+		        <input id = "inputform" class="form-control" type="text" name="word" placeholder="ABCDEFG" autocomplete="off">
 		      </form>
 		    </div>
 		</div>
 		<div class="train hidden">
-			<p class="title"> With these letters:</p>
+			<p class="title"> Avec ces lettres:</p>
 			<div class="letters">
 				<% @letters.each do |lett| %>
 					<div class="letter">
@@ -23,12 +24,12 @@
 					</div>
 				<% end %>
 			</div>
-			<p class="title"> Try finding the longest possible word:</p>
+			<p class="title"> Trouvez le plus long mot:</p>
 		    <div class="form-group">
 		      <form action="/score" method="post">
 		        <%= hidden_field_tag :letter_array, @letters %>
 		        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-		        <input id = "inputform2" class="form-control" type="text" name="word" placeholder="What is the longest word you can think of?" autocomplete="off">
+		        <input id = "inputform2" class="form-control" type="text" name="word" placeholder="CHAT" autocomplete="off">
 		      </form>
 		    </div>
 		</div>
@@ -71,7 +72,7 @@
 	      	
 	      } 
 	      if (letters[i].style = "rgba(220,220,220,0.6)")  {
-	        letters[i].style.background = "red";
+	        letters[i].style.background = "rgba(220,220,220,0.6)";
 	        break;
 	      }
 	    };

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Scrabble Helper by Jasper Brumter</title>
+    <title><%= content_for?(:title) ? yield(:title) : "Scrabble Helper by Jasper Brumter"%></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 

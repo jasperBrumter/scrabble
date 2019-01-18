@@ -19,6 +19,7 @@ input {
 .bg {
   height: 100vh;
   width: 100%;
+  overflow: hidden;
   background-image: linear-gradient(rgba(120,120,120,0.3), rgba(120,120,120,0.4)), url("https://einstruction.fr/wp-content/uploads/2017/09/logiciel-tricher-scrabble.jpg");
   display: flex;
   text-align: center;
@@ -28,6 +29,7 @@ input {
 .field {
   width: 700px;
   height:50vh;
+  min-height: 400px;
   background-color: white;
   display:flex;
   flex-direction: column;

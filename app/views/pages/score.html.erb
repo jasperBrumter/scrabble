@@ -1,10 +1,138 @@
+<% content_for(:title) do %>
+	Your word: <%= @yourletters %> on Scrabble Helper
+<% end %>
+
 <div class="bg">
 	<div class="field">
+		<h1>Results</h1>
 		<% if @approved %>
 			<p>Your word is legal in a French game of Scrabble!</p>
 			<p><%= @yourletters.length %> points!</p>
 		<% else %>
 			<p>Not a valid word! 0 points.</p>
+		<% end %>
+
+		<% if !@eightarray.empty? %>
+		    <% if @yourletters.length == 8 %>
+		    	<p>Vous avez trouvé le plus long mot possible!</p>
+		    <% else %>
+				<p>Il y avait des mots à huit lettres:</p>
+			<% end %>
+				<div class="results">
+					<% @eightarray.each do |word| %>
+						<div class="wordFound">
+							<% word.split("").each do |charact| %>
+								<div class="wordChar">
+									<h4><%= charact %></h4>
+								</div>
+							<% end %>
+						</div>
+					<% end %>
+				</div>
+
+		<% elsif !@sevenarray.empty? %>
+			<% if @yourletters.length == 7 %>
+		    	<p>Vous avez trouvé le plus long mot possible!</p>
+		    <% else %>
+				<p>Il y avait des mots à sept lettres:</p>
+			<% end %>
+			<div class="results">
+				<% @sevenarray.each do |word| %>
+					<div class="wordFound">
+						<% word.split("").each do |charact| %>
+							<div class="wordChar">
+								<h4><%= charact %></h4>
+							</div>
+						<% end %>
+					</div>
+				<% end %>
+			</div>
+
+		<% elsif !@sixarray.empty? %>
+			<% if @yourletters.length == 6 %>
+		    	<p>Vous avez trouvé le plus long mot possible!</p>
+		    <% else %>
+				<p>Il y avait des mots à six lettres:</p>
+			<% end %>
+			<div class="results">
+				<% @sixarray.each do |word| %>
+					<div class="wordFound">
+						<% word.split("").each do |charact| %>
+							<div class="wordChar">
+								<h4><%= charact %></h4>
+							</div>
+						<% end %>
+					</div>
+				<% end %>
+			</div>
+		<% elsif !@fivearray.empty? %>
+			<% if @yourletters.length == 5 %>
+		    	<p>Vous avez trouvé le plus long mot possible!</p>
+		    <% else %>
+				<p>Il y avait des mots à cinq lettres:</p>
+			<% end %>
+			<div class="results">
+				<% @fivearray.each do |word| %>
+					<div class="wordFound">
+						<% word.split("").each do |charact| %>
+							<div class="wordChar">
+								<h4><%= charact %></h4>
+							</div>
+						<% end %>
+					</div>
+				<% end %>
+			</div>
+		<% elsif !@fourarray.empty? %>
+			<% if @yourletters.length == 4 %>
+		    	<p>Vous avez trouvé le plus long mot possible!</p>
+		    <% else %>
+				<p>Il y avait des mots à quattre lettres:</p>
+			<% end %>
+			<div class="results">
+				<% @fourarray.each do |word| %>
+					<div class="wordFound">
+						<% word.split("").each do |charact| %>
+							<div class="wordChar">
+								<h4><%= charact %></h4>
+							</div>
+						<% end %>
+					</div>
+				<% end %>
+			</div>
+		<% elsif !@threearray.empty? %>
+			<% if @yourletters.length == 3 %>
+		    	<p>Vous avez trouvé le plus long mot possible!</p>
+		    <% else %>
+				<p>Il y avait des mots à trois lettres:</p>
+			<% end %>
+			<div class="results">
+				<% @threearray.each do |word| %>
+					<div class="wordFound">
+						<% word.split("").each do |charact| %>
+							<div class="wordChar">
+								<h4><%= charact %></h4>
+							</div>
+						<% end %>
+					</div>
+				<% end %>
+			</div>
+		<% elsif !@twoarray.empty? %>
+			<% if @yourletters.length == 2 %>
+		    	<p>Vous avez trouvé le plus long mot possible!</p>
+		    <% else %>
+				<p>Il y avait des mots à deux lettres:</p>
+			<% end %>
+			<div class="results">
+				<% @twoarray.each do |word| %>
+					<div class="wordFound">
+						<% word.split("").each do |charact| %>
+							<div class="wordChar">
+								<h4><%= charact %></h4>
+							</div>
+						<% end %>
+					</div>
+				<% end %>
+			</div>
 		<% end %>
 		<%= link_to "return", root_path %>
 	</div>
