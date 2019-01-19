@@ -3,15 +3,16 @@
   <head>
     <title><%= content_for?(:title) ? yield(:title) : "Scrabble Helper and Cheater"%></title>
 
-    <meta name="description" content="<%= meta_description %>">
+    <meta name="description" content="The first bilingual (French and English) Scrabble helper, ask us to find the longest words with your letters, or increase your skill by playing our fun game!">
+
 
 <!-- Facebook Open Graph data -->
-<meta property="og:title" content="<%= meta_title %>" />
+<meta property="og:title" content="Scrabble Helper - Cheat or Train your way to winning!" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="<%= request.original_url %>" />
-<meta property="og:image" content="<%= meta_image %>" />
-<meta property="og:description" content="<%= meta_description %>" />
-<meta property="og:site_name" content="<%= meta_title %>" />
+<meta property="og:url" content="https://scrabbled-eggs.herokuapp.com" />
+<meta property="og:image" content="thumbnail.jpg" />
+<meta property="og:description" content="The first bilingual (French and English) Scrabble helper, ask us to find the longest words with your letters, or increase your skill by playing our fun game!" />
+<meta property="og:site_name" content="Scrabble Helper - Cheat or Train your way to winning!" />
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
