@@ -15,7 +15,7 @@
 		        <div class="typedWord">
 		        	
 		        </div>
-		        <input id = "inputform" class="form-control" type="text" name="word" placeholder="Entrez vos lettres" autocomplete="off">
+		        <input id = "inputform" class="form-control" type="text" name="word" placeholder="Entrez vos lettres ici" autocomplete="off">
 		        <input type="submit" class="submitButton" value="TROUVER">
 		      </form>
 		    </div>
@@ -34,7 +34,7 @@
 		      <form action="/score" method="post">
 		        <%= hidden_field_tag :letter_array, @letters %>
 		        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-		        <input id = "inputform2" class="form-control" type="text" name="word" placeholder="Entrez votre mot" autocomplete="off">
+		        <input id = "inputform2" class="form-control" type="text" name="word" placeholder="Entrez votre mot ici" autocomplete="off">
 		        <input type="submit" class="submitButton" value="VERIFIER">
 		      </form>
 		    </div>
@@ -43,6 +43,9 @@
 		    </div>
 		    <%= link_to "REDISTRIBUER", restart_path, {class: "restartButton"}%>
 		</div>
+	</div>
+	<div class="footer">
+		<p>&copy; Jasper Brumter</p>
 	</div>
 </div>
 

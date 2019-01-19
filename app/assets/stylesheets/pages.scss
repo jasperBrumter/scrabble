@@ -25,10 +25,12 @@ input {
   display: flex;
   text-align: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .field {
   width: 700px;
+  max-width: 100%;
   min-height: 500px;
   flex: 0 1 700px;
   background-color: white;
@@ -42,6 +44,9 @@ input {
   overflow: scroll;
   transition: 1s ease;
  
+}
+.footer {
+	color: white;
 }
 
 .tabs {
