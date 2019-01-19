@@ -1,32 +1,60 @@
 .restartButton {
-	width: 190px;
+	width: 140px;
 	height: 40px;
-	margin: 0 auto;
+	margin: 10px auto;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	border: 2px solid rgba(248,94,79,1);
+	border-radius: 20px;
 	color: rgba(248,94,79,1);
 	text-decoration: none;
-	font-weight: bolder;
-	font-size: 16px;
+	font-size: 15px;
 	letter-spacing: 2px;
+	transition: .3s ease;
 	&:hover {
-		color: darkred;
+		color: white;
+		background-color: rgba(248,94,79,1);
+
 	}
 }
 
 .continueButton {
-	width: 120px;
+	width: 140px;
 	height: 40px;
-	margin: 10px auto 0 auto;
+	margin: 10px auto 5px auto;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	border: 2px solid rgba(69,156,171,1);
+	border-radius: 20px;
 	color: rgba(69,156,171,1);
 	text-decoration: none;
 	font-weight: bolder;
 	letter-spacing: 2px;
+	transition: .3s ease;
+
 	&:hover {
-		color: darkblue;
+		background-color: rgba(69,156,171,1);
+		color: white;
 	}
+}
+
+.submitButton {
+
+	margin-top: 30px;
+	width: 170px;
+	height: 50px;
+	color: rgb(43, 96, 181);
+	border: 2px solid rgb(43, 96, 181);
+	border-radius: 25px;
+	font-size: 20px;
+	letter-spacing: 2px;
+	transition: .3s ease;
+	&:hover {
+		cursor: pointer;
+		background-color: rgb(43, 96, 181);
+		color: white;	
+	}
+
 }
