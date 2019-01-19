@@ -57,3 +57,13 @@
 	}
 
 }
+
+.switchButton {
+	text-decoration: none;
+	transition: .3s ease;
+	color: black;
+	font-size: 15px;
+	&:hover {
+		border-bottom: 2px solid rgb(43, 96, 181);
+	}
+}

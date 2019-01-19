@@ -1,28 +1,28 @@
 <div class="bg">
 	<div class="field">
 		<div class="tabs">
-			<div class="tab" id="trainTab"><p class="tabsTitle">S'ENTRAINER</p></div>
-			<div class="tab" id="cheatTab"><p class="tabsTitle">TRICHER</p></div>
+			<div class="tab" id="trainTab"><p class="tabsTitle">TRAIN</p></div>
+			<div class="tab" id="cheatTab"><p class="tabsTitle">CHEAT</p></div>
 			
 		</div>
 		<div class="cheat hidden">
-			<h1 class="title">“Tricher au jeu sans gagner est d'un sot.”</h1>
-			<p>Voltaire, <u>Eloge de l'hypocrisie</u></p>
+			<h1 class="title">“If you're not cheating, you're not trying.”</h1>
+			<p>Eddie Guerrero</p>
 		    <div class="form-group">
-		      <form action="/find" method="post">
+		      <form action="/english/find" method="post">
 		        <%= hidden_field_tag :letter_array, @letters %>
 		        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 		        <div class="typedWord">
 		        	
 		        </div>
-		        <input id = "inputform" class="form-control" type="text" name="word" placeholder="Entrez vos lettres ici" autocomplete="off">
-		        <input type="submit" class="submitButton" value="TROUVER">
+		        <input id = "inputform" class="form-control" type="text" name="word" placeholder="Enter letters here" autocomplete="off">
+		        <input type="submit" class="submitButton" value="FIND">
 		      </form>
 		    </div>
 		</div>
 		<div class="train">
-			<h1 class="title">Devenez un maître du Scrabble</h1>
-			<p class> Avec ces lettres:</p>
+			<h1 class="title">Become a Scrabble Master</h1>
+			<p class> Find the longest word with these letters:</p>
 			<div class="letters">
 				<% @letters.each do |lett| %>
 					<div class="letter">
@@ -31,18 +31,18 @@
 				<% end %>
 			</div>
 		    <div class="form-group">
-		      <form action="/score" method="post">
+		      <form action="/english/score" method="post">
 		        <%= hidden_field_tag :letter_array, @letters %>
 		        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-		        <input id = "inputform2" class="form-control" type="text" name="word" placeholder="Entrez votre mot ici" autocomplete="off">
-		        <input type="submit" class="submitButton" value="VERIFIER">
+		        <input id = "inputform2" class="form-control" type="text" name="word" placeholder="Enter word here" autocomplete="off">
+		        <input type="submit" class="submitButton" value="CHECK">
 		      </form>
 		    </div>
 		    <div class="score">
 		    	<p>Votre Score: <br><%= @score %> / <%= @maxscore %></p>
 		    </div>
-		    <%= link_to "REDISTRIBUER", restart_path, {class: "restartButton"}%>
-		    <%= link_to "English Version", english_play_path, {class: "switchButton"} %>
+		    <%= link_to "START OVER", english_restart_path, {class: "restartButton"}%>
+		    <%= link_to "French Version", root_path, {class: "switchButton"} %>
 		</div>
 	</div>
 	<div class="footer">

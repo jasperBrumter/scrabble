@@ -1,0 +1,160 @@
+<% content_for(:title) do %>
+	Your word: <%= @yourletters %> on Scrabble Helper
+<% end %>
+
+<div class="bg">
+	<div class="resultField">
+		<div>
+			<h1>Results</h1>
+		</div>
+		<div>
+			<div class="wordFound">
+				<% @yourletters.split("").each do |charact| %>
+					<div class="wordChar">
+						<h4><%= charact %></h4>
+					</div>
+				<% end %>
+			</div>
+			<% if @approved && @valid && @yourletters.length == @thisGameScore%>
+				<p>Congrats! <%= @yourletters.length %> letter word! Maximum!</p>
+			<% elsif @approved && @valid %>
+				<p><%= @yourletters.length %> letter Word!</p>
+			<% elsif @approved%>
+				<p>You can't spell this word</p>
+			<% else %>
+				<p>That's not a word! 0 points.</p>
+			<% end %>
+		</div>
+		
+		<!-- show other words-->
+		<div>
+			<% if !@sevenarray.empty? %>
+				<% if @yourletters.length == 7  && @sevenarray.length == 1 && @approved && @valid%>
+			    	<p>You found the longest possible word!</p>
+			    <% elsif  @yourletters.length == 7 && @approved && @valid%>
+			    	<p>Could also make:</p>
+			    <% else%>
+			    	<p>Best Answers:</p>
+			    <% end %>
+				<div class="results">
+					<% @sevenarray.each do |word| %>
+						<div class="wordFound">
+							<% word.split("").each do |charact| %>
+								<div class="wordChar">
+									<h4><%= charact %></h4>
+								</div>
+							<% end %>
+						</div>
+					<% end %>
+				</div>
+			<% elsif !@sixarray.empty? %>
+				<% if @yourletters.length == 6  && @sixarray.length == 1 && @approved && @valid%>
+			    	<p>You found the longest possible word!</p>
+			    <% elsif  @yourletters.length == 6 && @approved && @valid%>
+			    	<p>Could also make:</p>
+			    <% else%>
+			    	<p>Best Answers:</p>
+			    <% end %>
+				<div class="results">
+					<% @sixarray.each do |word| %>
+						<div class="wordFound">
+							<% word.split("").each do |charact| %>
+								<div class="wordChar">
+									<h4><%= charact %></h4>
+								</div>
+							<% end %>
+						</div>
+					<% end %>
+				</div>
+			<% elsif !@fivearray.empty? %>
+				<% if @yourletters.length == 5  && @fivearray.length == 1 && @approved && @valid%>
+			    	<p>You found the longest possible word!</p>
+			    <% elsif  @yourletters.length == 5 && @approved && @valid%>
+			    	<p>Could also make:</p>
+			    <% else%>
+			    	<p>Best Answers:</p>
+			    <% end %>
+				<div class="results">
+					<% @fivearray.each do |word| %>
+						<div class="wordFound">
+							<% word.split("").each do |charact| %>
+								<div class="wordChar">
+									<h4><%= charact %></h4>
+								</div>
+							<% end %>
+						</div>
+					<% end %>
+				</div>
+			<% elsif !@fourarray.empty? %>
+				<% if @yourletters.length == 4  && @fourarray.length == 1 && @approved && @valid%>
+			    	<p>You found the longest possible word!</p>
+			    <% elsif  @yourletters.length == 4 && @approved && @valid%>
+			    	<p>Could also make:</p>
+			    <% else%>
+			    	<p>Best Answers:</p>
+			    <% end %>
+				<div class="results">
+					<% @fourarray.each do |word| %>
+						<div class="wordFound">
+							<% word.split("").each do |charact| %>
+								<div class="wordChar">
+									<h4><%= charact %></h4>
+								</div>
+							<% end %>
+						</div>
+					<% end %>
+				</div>
+			<% elsif !@threearray.empty? %>
+				<% if @yourletters.length == 3  && @threearray.length == 1 %>
+			    	<p>You found the longest possible word!</p>
+			    <% elsif  @yourletters.length == 3 && @approved && @valid%>
+			    	<p>Could also make:</p>
+			    <% else%>
+			    	<p>Best Answers:</p>
+			    <% end %>
+				<div class="results">
+					<% @threearray.each do |word| %>
+						<div class="wordFound">
+							<% word.split("").each do |charact| %>
+								<div class="wordChar">
+									<h4><%= charact %></h4>
+								</div>
+							<% end %>
+						</div>
+					<% end %>
+				</div>
+			<% elsif !@twoarray.empty? %>
+				<% if @yourletters.length == 2  && @twoarray.length == 1 && @approved && @valid%>
+			    	<p>You found the longest possible word!</p>
+			    <% elsif  @yourletters.length == 2 && @approved && @valid%>
+			    	<p>Could also make:</p>
+
+			    <% else%>
+			    	<p>Best Answers:</p>
+			    <% end %>
+				<div class="results">
+					<% @twoarray.each do |word| %>
+						<div class="wordFound">
+							<% word.split("").each do |charact| %>
+								<div class="wordChar">
+									<h4><%= charact %></h4>
+								</div>
+							<% end %>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
+		</div>
+		
+		<div>
+			<p>Your Score: <br><%= @score %> / <%= @maxscore %></p>
+		</div>
+		<div class="navButtons">
+			<%= link_to "Play Again", english_play_path, {class: "continueButton"}%>
+			<%= link_to "Cancel", english_restart_path, {class: "restartButton"}%>
+		</div>
+	</div>
+	<div class="footer">
+		<p>&copy; Jasper Brumter, 2019</p>
+	</div>
+</div>
