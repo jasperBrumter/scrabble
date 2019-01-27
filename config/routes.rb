@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get "score", to: "pages#play"
   get "find", to: "pages#play"
 
+  post "add", to: "pages#add", as: :addWord
+
   get "english", to: "english#play", as: :english_play
   post "english/score", to: "english#score", as: :english_score
   post "english/find", to: "english#find", as: :english_find

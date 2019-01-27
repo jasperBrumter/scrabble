@@ -67,3 +67,19 @@
 		border-bottom: 2px solid rgb(43, 96, 181);
 	}
 }
+
+.addWordButton {
+	height: 40px;
+	width: 160px;
+	color: green;
+	background-color: none;
+	border: 2px solid green;
+	border-radius: 5px;
+	font-family: 'Lato', sans-serif;
+	font-size: 20px;
+	&:hover {
+		background-color: green;
+		color: white;
+	}
+
+}

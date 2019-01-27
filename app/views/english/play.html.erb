@@ -52,12 +52,12 @@
 
 <script>
 
-	const cheatTab = document.querySelector("#cheatTab");
-	const trainTab = document.querySelector("#trainTab");
-	const cheatField = document.querySelector(".cheat");
-	const trainField = document.querySelector(".train");
-	const cheatForm = document.querySelector("#inputform");
-	const cheatFormDiv = document.querySelector(".typedWord");
+	var cheatTab = document.querySelector("#cheatTab");
+	var trainTab = document.querySelector("#trainTab");
+	var cheatField = document.querySelector(".cheat");
+	var trainField = document.querySelector(".train");
+	var cheatForm = document.querySelector("#inputform");
+	var cheatFormDiv = document.querySelector(".typedWord");
 	trainTab.classList.add("active");
 
 	cheatTab.addEventListener("click", (e) => {
@@ -74,7 +74,7 @@
 		trainTab.classList.add("active");
 	})
 
-	let letters = document.querySelectorAll(".letter");
+	var letters = document.querySelectorAll(".letter");
 
 	cheatForm.addEventListener("keyup", (e) => {
 		cheatFormDiv.innerHTML = "";

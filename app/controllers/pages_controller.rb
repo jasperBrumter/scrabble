@@ -140,8 +140,19 @@ class PagesController < ApplicationController
   def score
   	@letters = params["letter_array"].split(" ")
   	@yourletters = params["word"].upcase.gsub(/\s+/, "")
-  	
+  	@word = Word.new()
 
+# find whether the player can properly make the word with those letters
+  	@valid = true
+  	@yourletters.split("").each do |letter|
+  		if @letters.include?(letter)
+  			@letters.delete_at(@letters.index(letter))
+  		else 
+			@valid = false
+		end
+	end
+	@letters = params["letter_array"].split(" ")
+	
 
 #find all words that contain these letters
   	@twoarray = []
@@ -230,15 +241,6 @@ class PagesController < ApplicationController
   		@approved = true if LENGTH7.include?(@yourletters)
   	end
 
-  	@allLetters = params["word"].upcase.split("")
-  	@valid = true
-  	@allLetters.each do |letter|
-		if @letters.include?(letter)
-			@allLetters.delete_at(@allLetters.index(letter))
-		else
-			@valid = false
-	  	end
-	  end
 
 #update your score and max score
   	if @approved && @valid == true
@@ -277,5 +279,16 @@ class PagesController < ApplicationController
   		@maxscore = session[:maxscore]
   	end
   end
+
+
+  def add
+  	@word = Word.create(strongWord)
+  end
+
+  private
+  def strongWord
+  	params.require("word").permit(:text)
+  end
+
 end
 
