@@ -1,5 +1,5 @@
 <% content_for(:title) do %>
-	Your word: <%= @yourletters %> on Scrabble Helper
+	Your word <%= @yourletters %> is <%= @approved && @valid ? "VALID" : "NOT VALID" %> on Scrabble Helper
 <% end %>
 
 <div class="bg">
@@ -22,7 +22,11 @@
 			<% elsif @approved%>
 				<p>You can't spell this word</p>
 			<% else %>
-				<p>That's not a word! 0 points.</p>
+				<p>That's not a word!</p>
+				<%= form_for @word, :url => addWord_path do |t|%>
+					<%= t.text_field :text, {value: "#{@yourletters}",class: "hidden"}%>
+					<%= t.submit "If you think that your word exists, click here!", class: "addWordButton"%>
+				<% end %>
 			<% end %>
 		</div>
 		

@@ -14,7 +14,7 @@ class EnglishController < ApplicationController
 	  	session[:maxscore] = nil
 	  	@score = 0
 	  	@maxscore = 0
-	  	redirect_to root_path
+	  	redirect_to english_play_path
 	end
 
   def play
@@ -141,8 +141,19 @@ class EnglishController < ApplicationController
   def score
   	@letters = params["letter_array"].split(" ")
   	@yourletters = params["word"].upcase.gsub(/\s+/, "")
-  	
+  	@word = Word.new()
 
+# find whether the player can properly make the word with those letters
+  	@valid = true
+  	@yourletters.split("").each do |letter|
+  		if @letters.include?(letter)
+  			@letters.delete_at(@letters.index(letter))
+  		else 
+			@valid = false
+		end
+	end
+	@letters = params["letter_array"].split(" ")
+	
 
 #find all words that contain these letters
   	@twoarray = []
@@ -231,15 +242,6 @@ class EnglishController < ApplicationController
   		@approved = true if LENGTH7.include?(@yourletters)
   	end
 
-  	@allLetters = params["word"].upcase.split("")
-  	@valid = true
-  	@allLetters.each do |letter|
-		if @letters.include?(letter)
-			@allLetters.delete_at(@allLetters.index(letter))
-		else
-			@valid = false
-	  	end
-	  end
 
 #update your score and max score
   	if @approved && @valid == true
@@ -277,6 +279,16 @@ class EnglishController < ApplicationController
   		session[:maxscore] = session[:maxscore].to_i + 2
   		@maxscore = session[:maxscore]
   	end
+  end
+
+
+  def add
+  	@word = Word.create(strongWord)
+  end
+
+  private
+  def strongWord
+  	params.require("word").permit(:text)
   end
 end
 
