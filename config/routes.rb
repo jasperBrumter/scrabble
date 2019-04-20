@@ -14,5 +14,16 @@ Rails.application.routes.draw do
   get "english/restart", to: "english#restart", as: :english_restart
   get "english/score", to: "english#play"
   get "english/find", to: "english#play"
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      get "/en/words", to: "english#words"
+      get "/en/letters", to: "english#letters"
+      get "/en/word", to: "english#result"
+      get "/fr/letters", to: "french#lettres"
+      get "/fr/words", to: "french#mots"
+      get "/fr/word", to: "french#resultat"
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
