@@ -29,5 +29,12 @@ module Scrabble
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'localhost:3000'
+        resource '/api/v1/*', headers: :any, methods: [:get]
+      end
+    end
   end
 end
